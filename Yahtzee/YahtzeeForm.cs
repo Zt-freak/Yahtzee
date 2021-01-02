@@ -126,11 +126,26 @@ namespace Yahtzee
         {
             Random rnd = new Random();
 
-            this.dice1.Text = rnd.Next(1, 7).ToString();
-            this.dice2.Text = rnd.Next(1, 7).ToString();
-            this.dice3.Text = rnd.Next(1, 7).ToString();
-            this.dice4.Text = rnd.Next(1, 7).ToString();
-            this.dice5.Text = rnd.Next(1, 7).ToString();
+            if (!this.lock1.Checked)
+            {
+                this.dice1.Text = rnd.Next(1, 7).ToString();
+            }
+            if (!this.lock2.Checked)
+            {
+                this.dice2.Text = rnd.Next(1, 7).ToString();
+            }
+            if (!this.lock3.Checked)
+            {
+                this.dice3.Text = rnd.Next(1, 7).ToString();
+            }
+            if (!this.lock4.Checked)
+            {
+                this.dice4.Text = rnd.Next(1, 7).ToString();
+            }
+            if (!this.lock5.Checked)
+            {
+                this.dice5.Text = rnd.Next(1, 7).ToString();
+            }
 
             this.CheckScore();
 
@@ -206,14 +221,19 @@ namespace Yahtzee
             this.rollsLeftAmount.Enabled = true;
             this.turnScoreAmount.Enabled = true;
             this.lock1.Enabled = false;
+            this.lock1.Checked = false;
             this.dice1.Enabled = true;
             this.lock2.Enabled = false;
+            this.lock2.Checked = false;
             this.dice2.Enabled = true;
             this.lock3.Enabled = false;
+            this.lock3.Checked = false;
             this.dice3.Enabled = true;
             this.lock4.Enabled = false;
+            this.lock4.Checked = false;
             this.dice4.Enabled = true;
             this.lock5.Enabled = false;
+            this.lock5.Checked = false;
             this.dice5.Enabled = true;
             this.RollButton.Enabled = true;
         }
@@ -238,6 +258,11 @@ namespace Yahtzee
                     this.lock3.Enabled = false;
                     this.lock4.Enabled = false;
                     this.lock5.Enabled = false;
+                    this.lock1.Checked = false;
+                    this.lock2.Checked = false;
+                    this.lock3.Checked = false;
+                    this.lock4.Checked = false;
+                    this.lock5.Checked = false;
                     this.RollButton.Text = "Next Turn";
                     break;
                 case 2:
